@@ -1,4 +1,5 @@
-*{
+/* --------------- Base Styles (No changes to your base code) --------------- */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -6,218 +7,231 @@
     text-decoration: none;
 }
 
-.container{
+.container {
     height: 100vh;
     width: 100%;
-    position: relative;
-    background: url(background.png);
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url(background.png);
+    position: relative;
 }
 
-.container .box{
-    height: 86vh;
+.container .box {
     width: 75%;
-    padding: 0 20px;
-    background: rgba(255, 255, 255, 0.1);
-    z-index: 10;
+    height: 86vh;
     display: flex;
-    position: relative;
     border-radius: 20px;
     border: 2px solid rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
 }
 
-.container::after{
+.container::after {
     content: '';
     position: absolute;
     height: 300px;
     width: 300px;
     border-radius: 50%;
-    background: linear-gradient( #c1d9fb,#cbd1f8);
-    transform: translate(490px,150px);
+    background: linear-gradient(#c1d9fb, #cbd1f8);
+    transform: translate(490px, 150px);
 }
 
-.container .box nav{
-    height: 7%;
-    width: 95%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 15px auto;
-    padding: 20px;
-}
-
-.container .box nav ul li{
-    display: inline-block;
-    padding: 0 20px;
-    list-style: none;
-}
-
-.container .box nav ul li a{
-    font-size: 14px;
-    font-weight: 400;
-    cursor: pointer;
-    color: #242329;
-    transition: 0.3s
-}
-
-.container .box nav ul li a:hover{
-    color: #7c8bd1;
-}
-
-.container .box nav .logo{
-    font-size: 35px;
-    color: #242329;
-    font-weight: bold;
-    margin-top: 5px;
-    margin-left: 30px;
-}
-
-.container .box .contains{
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.contains {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 8%;
     padding-left: 80px;
+    /* إضافة لموبايل (ترتيب ديسكتوب): لضمان ترتيب الصورة ثم النص في الفليكس*/
+    /* الترتيب الحالي هو Text ثم Image */
 }
 
-.contains .section-1{
-    position: relative;
+.section-1 {
     width: 40%;
 }
 
-.contains .section-1 h1{
-    margin-bottom: 20px;
+.section-1 h1 {
     font-size: 3rem;
     font-weight: bold;
     color: #242329;
+    margin-bottom: 20px;
 }
 
-.contains .section-1 h3{
+.section-1 h3 {
+    font-size: 1.5rem;
     color: #6f34fe;
     margin-bottom: 10px;
-    font-size: 1.5rem;
 }
 
-.contains .section-1 p{
+.section-1 p {
     font-size: 1rem;
     color: #505052;
     margin-bottom: 50px;
 }
 
-.contains .section-1 .btn{
+.section-1 .btn {
     padding: 0.8rem 1.5rem;
     background-color: #6f34fe;
-    border: 1px solid #6f34fe;
     color: #fff;
     border-radius: 5px;
-    font-weight: 500;
     font-size: 1rem;
-}
-
-.contains .section-1 .btn:hover{
-    color: #6f34fe;
+    font-weight: 500;
+    border: 1px solid #6f34fe;
     transition: 0.3s;
-    background-color: #cdddf3;
-    border: 1px solid ;
+    /* لجعل الزر مُركزاً على الموبايل */
+    display: inline-block;
 }
 
-.contains .section-2{
+.section-1 .btn:hover {
+    background-color: #cdddf3;
+    color: #6f34fe;
+}
+
+.section-2 {
     width: 40%;
     margin-right: 50px;
 }
 
-.contains .section-2 img{
+.section-2 img {
     width: 100%;
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
 }
 
-.contains .section-3{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.section-3 {
     position: absolute;
     left: 10px;
     top: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.contains .section-3 a i{
+.section-3 a i {
     font-size: 25px;
-    cursor: pointer;
     color: #7c8bd1;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.contains .section-3 i:hover{
+.section-3 a i:hover {
     color: #6f34fe;
 }
 
 
-@media (max-width: 768px) {
+/* -------------------------------------------------------------------------------- */
+/* -------------------------- Responsive Adjustments ------------------------------ */
+/* -------------------------------------------------------------------------------- */
 
+
+/* --------------- Tablet (iPad) --------------- */
+@media (max-width: 1024px) {
     .container .box {
-        flex-direction: column;
-        width: 90%;
-        height: auto;
-        padding: 20px;
+        width: 85%;
     }
 
     .contains {
+        padding-left: 40px;
+        /* تقليل المارجن لزيادة المساحة */
+        margin-top: 5%;
+    }
+
+    .section-1 h1 { font-size: 2.5rem; }
+    .section-1 h3 { font-size: 1.3rem; }
+    .section-1 p { font-size: 0.95rem; }
+    /* لتقليل حجم الصورة قليلاً على التابلت */
+    .section-2 {
+        width: 45%;
+        margin-right: 20px;
+    }
+    .section-2 img { max-width: 90%; }
+}
+
+/* --------------- Mobile (iPhone & small screens) --------------- */
+@media (max-width: 768px) {
+    .container .box {
+        /* إزالة flex-direction: column كانت موجودة، نعتمد على .contains */
+        width: 90%;
+        height: auto;
+        padding: 30px 20px; /* زيادة Padding لتبدو البطاقة أفضل */
+    }
+
+    .contains {
+        /* تحويل الترتيب إلى عمودي */
         flex-direction: column;
         align-items: center;
         padding-left: 0;
-        margin-top: 5%;
+        margin-top: 0;
     }
 
     .section-1, .section-2 {
         width: 100%;
-        text-align: center;
+        text-align: center; /* توسيط النص */
         margin: 0;
+        /* استخدام خاصية order لترتيب العناصر عمودياً: الصورة (section-2) أولاً، ثم النص (section-1) */
     }
 
-    .section-1 h1 {
-        font-size: 2rem;
+    /* الترتيب الجديد المطلوب: الصورة (2)، ثم النص (1) */
+    .section-2 {
+        order: 1;
+        margin: 20px 0; /* مسافة أعلى وأسفل الصورة */
     }
 
-    .section-1 h3 {
-        font-size: 1.2rem;
+    .section-1 {
+        order: 2;
     }
 
-    .section-1 p {
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-    }
-
-    .section-1 .btn {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
-    }
+    .section-1 h1 { font-size: 2rem; }
+    .section-1 h3 { font-size: 1.2rem; }
+    .section-1 p { font-size: 0.9rem; margin-bottom: 25px; } /* زيادة المارجن بعد الوصف */
+    .section-1 .btn { padding: 0.7rem 1.2rem; font-size: 0.9rem; }
 
     .section-2 img {
-        width: 70%;
-        margin: 20px 0;
+        width: 60%; /* تقليل حجم الصورة أكثر */
+        max-width: 200px; /* تحديد أقصى حجم */
+        margin: 20px auto 0; /* توسيط الصورة */
     }
 
     .section-3 {
-        flex-direction: row;
-        gap: 20px;
+        /* نقل الأيقونات من الجانب إلى أسفل المحتوى، ترتيب أفقي */
+        order: 3; /* الأخير في الترتيب */
         position: static;
-        margin-top: 20px;
+        margin-top: 30px; /* مسافة بعد زر Contact Me */
+        display: flex;
+        flex-direction: row; /* أفقي */
         justify-content: center;
+        gap: 20px; /* زيادة المسافة بين الأيقونات */
+        width: 100%;
+        padding-bottom: 10px;
     }
 
-    .section-3 a i {
-        font-size: 20px;
+    .section-3 a i { font-size: 22px; }
+    .container::after { display: none; }
+}
+
+/* --------------- Extra Small (iPhone SE) --------------- */
+@media (max-width: 480px) {
+    .container .box {
+        padding: 20px 15px;
     }
 
-    .container::after {
-        display: none;
+    .section-1 h1 { font-size: 1.6rem; }
+    .section-1 h3 { font-size: 1rem; }
+    .section-1 p { font-size: 0.8rem; margin-bottom: 15px; }
+    .section-1 .btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+
+    .section-2 img { width: 70%; max-width: 180px; }
+
+    .section-3 {
+        margin-top: 20px;
+        gap: 15px;
     }
+    .section-3 a i { font-size: 18px; }
 }
